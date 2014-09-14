@@ -26,7 +26,6 @@ namespace AzureSearchUtil.Test
         public string[] Labels { get; set; }
         public string Thumbnail { get; set; }
 
-        [ReplaceValue("free=0;none=0")]
         public int Cost { get; set; }
 
         public DateTime PubDate { get; set; }

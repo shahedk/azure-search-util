@@ -19,39 +19,79 @@ namespace AzureSearchUtil.Demo
         {
             const string testIndexName = "contents";
 
-            // 
-            var searchService = new AzureSearchService(TestSettings.AzureSearchApiKey,
-                    TestSettings.AzureSearchUrlPrefix, TestSettings.AzureSearchApiVersion);
+            // 1. Create an instance of the service to communicate with AzureSearch service
+            var searchService = new AzureSearchService(TestSettings.AzureSearchApiKey, TestSettings.AzureSearchUrlPrefix, TestSettings.AzureSearchApiVersion);
 
-            /* 
-             * Create the index in AzureSearch service
-             */
-            //var result = searchService.CreateIndex(typeof(Content), testIndexName);
+            // 2. Create the index and check status
+            var result = searchService.CreateIndex(typeof(Content), testIndexName);
+            if (result.IsSuccessStatusCode)
+            {
+                Console.WriteLine("Index: {0} was created successfully.", testIndexName);
+            }
+            else
+            {
+                var task = result.Content.ReadAsStringAsync();
+                task.Wait();
 
+                var errorMessage = task.Result;
+                Console.WriteLine();
+            }
 
-            /*
-             * Loading data into Azure in batch (batch size of 4 documents max)
-             */
-
+            //3. Prepare the list of documents/items to upload and upload in batch
             var mongoDbDocuments = GetData();
-
             var itemsToUpload = new List<object>();
+
+            int count = 1;
             foreach (var doc in mongoDbDocuments)
             {
+                count++;
                 var item = new Content();
                 doc.FillObject(item);
-
                 itemsToUpload.Add(item);
-            }
-            searchService.AddContent(testIndexName, itemsToUpload);
 
+                if (count > 5)
+                {
+                    searchService.AddContent(testIndexName, itemsToUpload);
+
+                    itemsToUpload.Clear();
+                    count = 0;
+                }
+            }
+
+            // Upload any remaining items
+            if (itemsToUpload.Count > 0)
+            {
+                searchService.AddContent(testIndexName, itemsToUpload);
+            }
+
+            // 5. Check total document count
+            //    Depending on service tier and server load, azure service may take some time 
+            //    to process the uploaded data. Let's wait for 1 sec before checking the count
             Thread.Sleep(1000);
 
-            var count = searchService.GetCount(testIndexName);
+            var totalDocuments = searchService.GetCount(testIndexName);
+            Console.WriteLine("Total number of documents in index is: " + totalDocuments);
+            Console.WriteLine("");
 
-            searchService.DeleteIndex(testIndexName);
+            // 6. Run a search query
+            var searchResult = searchService.Search<SearchResultItem>(testIndexName, "Windows 8");
+            Console.WriteLine("Search result for term: Windows 8");
+            foreach (SearchResultItem item in searchResult.value)
+            {
+                Console.WriteLine("Title: {0} \nScore: {1}\n", item.Title, item.SearchScore);
+            }
+
+            // Uncomment this line if you like to delete the index
+            // searchService.DeleteIndex(testIndexName);
+            
+            
+            Console.Read();
         }
 
+        /// <summary>
+        /// Instead of getting the data from MongoDB database, it returns data from file in a similar format as MongoDB clients.
+        /// </summary>
+        /// <returns></returns>
         private static IEnumerable<BsonDocument> GetData()
         {
             var jsonData = File.ReadAllText(@"..\..\data.json");

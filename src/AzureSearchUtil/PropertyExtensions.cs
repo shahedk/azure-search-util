@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
 using System.Reflection;
@@ -33,32 +34,17 @@ namespace AzureSearchUtil
         {
             if (info != null)
             {
-                info.SetValue(self, ChangeType(info.PropertyType, value));
+                info.SetValue(self, ChangeType(info, value));
             }
         }
 
-        private static object ChangeType(Type propertyType, object value)
+        private static object ChangeType(PropertyInfo info, object value)
         {
             try
             {
-                return Convert.ChangeType(value, propertyType);
+                return Convert.ChangeType(value, info.PropertyType);
             }
             catch (Exception ex)
-            {
-                //TODO: Log error
-                return GetPreDefinedValue(value, propertyType.Name);
-            }
-
-        }
-
-        //TODO: Temporary work-around - remove code
-        private static object GetPreDefinedValue(object value, string propertyName)
-        {
-            if (propertyName.ToLower() == "cost" && value.ToString() == "Free")
-            {
-                return 0;
-            }
-            else
             {
                 return null;
             }

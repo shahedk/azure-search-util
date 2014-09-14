@@ -2,6 +2,7 @@
 
 namespace AzureSearchUtil.Attributes
 {
+    /* Not implemented yet
     public class ReplaceValueAttribute : Attribute
     {
         private readonly string[] _values;
@@ -16,4 +17,5 @@ namespace AzureSearchUtil.Attributes
             get { return _values; }
         }
     }
+     */
 }
