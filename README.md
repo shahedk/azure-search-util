@@ -45,10 +45,12 @@ public class Content
 
 Or, we could also use the `PropertyName` attribute to specify different name for a specific property.
 
-<pre><code>
+<pre>
+<code>
 [PropertyName("thumb")]
 public string Thumbnail { get; set; }
-</code></pre>
+</code>
+</pre>
 
 ###Mapping fields
 Some no-sql databases (eg. MongoDB) supports nested objects. But AzureSearch supports only few primitive types like string, interger, etc. Also, it only supports array of string types. The full list of supported data types can be found [here](msdn.microsoft.com/en-us/library/azure/dn798938.aspx).
