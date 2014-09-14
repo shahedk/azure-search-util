@@ -1,6 +1,6 @@
 #A .NET Client Library for AzureSearch
 
-`PM> Install-Package azure-search-util -Version 0.2.3 `
+`PM> Install-Package azure-search-util`
 
 The library provides strongly typed interfaces to manage indexes, map and upload contents from other sources (e.g. MongoDB) and execute search operations.
 
@@ -131,7 +131,7 @@ Similar to creating index method, we could also delete an index:
 The library is in the early stage of development. I am still adding new functionalities. Please let me know if you are looking for any specific feature or find any bugs.
 
 **nugget:**
-PM> Install-Package azure-search-util -Version 0.2.3
+PM> Install-Package azure-search-util
 
 **blog:**
 http://shahed.net
