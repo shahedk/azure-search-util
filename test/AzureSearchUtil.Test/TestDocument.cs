@@ -17,7 +17,7 @@ namespace AzureSearchUtil.Test
 
         // Text descriptions
         [FieldProperties(FieldOptions.Searchable | FieldOptions.Retrievable | FieldOptions.Sortable | FieldOptions.Suggestions)]
-        [FieldName("title")]
+        [PropertyName("title")]
         public string Title { get; set; }
 
 

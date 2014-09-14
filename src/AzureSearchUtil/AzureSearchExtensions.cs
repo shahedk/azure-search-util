@@ -86,7 +86,7 @@ namespace AzureSearchUtil
                     //    fieldDef["name"] = weight;
                     //}
 
-                    if (attribute.AttributeType.Name == typeof(FieldNameAttribute).Name)
+                    if (attribute.AttributeType.Name == typeof(PropertyNameAttribute).Name)
                     {
                         var destinationFieldName = (string)attribute.ConstructorArguments[0].Value;
                         fieldDef["name"] = destinationFieldName;

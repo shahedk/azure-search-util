@@ -83,8 +83,8 @@ namespace AzureSearchUtil.Demo
 
             // Uncomment this line if you like to delete the index
             // searchService.DeleteIndex(testIndexName);
-            
-            
+
+
             Console.Read();
         }
 

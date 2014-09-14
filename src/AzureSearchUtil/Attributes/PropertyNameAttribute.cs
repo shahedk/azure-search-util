@@ -2,11 +2,11 @@
 
 namespace AzureSearchUtil.Attributes
 {
-    public class FieldNameAttribute : Attribute
+    public class PropertyNameAttribute : Attribute
     {
         private readonly string _fieldName;
 
-        public FieldNameAttribute(string fieldName)
+        public PropertyNameAttribute(string fieldName)
         {
             _fieldName = fieldName;
         }

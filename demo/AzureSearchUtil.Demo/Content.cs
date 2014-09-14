@@ -18,10 +18,12 @@ namespace AzureSearchUtil.Demo
         [SourcePropertyName("source.presenters.title")]
         public string[] Presenters { get; set; }
 
+        [FieldProperties(FieldOptions.Searchable | FieldOptions.Suggestions | FieldOptions.Facetable)]
         public string Title { get; set; }
 
         public string Url { get; set; }
 
+        [PropertyName("thumb")]
         [SourcePropertyName("desc.img.short")]
         public string Thumbnail { get; set; }
     }

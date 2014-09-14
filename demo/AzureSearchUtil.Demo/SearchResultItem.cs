@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 
 namespace AzureSearchUtil.Demo
 {
-    public class SearchResultItem : Content
-    {
-        [JsonProperty(PropertyName = "@search.score")]
-        public string SearchScore { get; set; }
+public class SearchResultItem : Content
+{
+    [JsonProperty(PropertyName = "@search.score")]
+    public string SearchScore { get; set; }
 
-        [JsonProperty(PropertyName = "@search.highlights")]
-        public Dictionary<string, List<string>> SearchHighlights { get; set; }
-    }
+    [JsonProperty(PropertyName = "@search.highlights")]
+    public Dictionary<string, List<string>> SearchHighlights { get; set; }
+}
 }

@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\Boost.cs" />
-    <Compile Include="Attributes\FieldNameAttribute.cs" />
+    <Compile Include="Attributes\PropertyNameAttribute.cs" />
     <Compile Include="Attributes\FieldPropertiesAttribute.cs" />
     <Compile Include="Attributes\NamingConvensionAttribute.cs" />
     <Compile Include="Attributes\ReplaceValueAttribute.cs" />
