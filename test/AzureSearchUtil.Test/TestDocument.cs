@@ -12,7 +12,7 @@ namespace AzureSearchUtil.Test
     public class TestDocument
     {
         [FieldProperties(FieldOptions.Key)]
-        [Source("_id")]
+        [SourcePropertyName("_id")]
         public string Id { get; set; }
 
         // Text descriptions
@@ -33,8 +33,6 @@ namespace AzureSearchUtil.Test
         public DateTimeOffset StartDate { get; set; }
 
         public string[] DownloadUrls { get; set; }
-
-
     }
 
     public class SearchResultItem : TestDocument

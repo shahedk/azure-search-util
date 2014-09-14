@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{723A7F
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureSearchUtil.Demo", "..\demo\AzureSearchUtil.Demo\AzureSearchUtil.Demo.csproj", "{72DF706E-156B-43D9-A096-9D73DB5CEDEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{B61B15D2-6842-4C56-880A-1E4D07CB26B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B61B15D2-6842-4C56-880A-1E4D07CB26B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B61B15D2-6842-4C56-880A-1E4D07CB26B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72DF706E-156B-43D9-A096-9D73DB5CEDEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72DF706E-156B-43D9-A096-9D73DB5CEDEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72DF706E-156B-43D9-A096-9D73DB5CEDEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72DF706E-156B-43D9-A096-9D73DB5CEDEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

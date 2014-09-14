@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Reflection;
 using AzureSearchUtil.Attributes;
+using AzureSearchUtil.Exceptions;
 using Newtonsoft.Json;
 
 namespace AzureSearchUtil
@@ -55,13 +56,15 @@ namespace AzureSearchUtil
 
         public static string ToIndexDefinition(this Type type, string indexName)
         {
+            bool isKeyFieldSpecified = false;
+
             var index = new IndexDefinition() { name = indexName };
 
             var namingConvention = NamingConventions.None;
-            var customAttributes = type.GetCustomAttributes(typeof (NamingConvensionAttribute), true);
+            var customAttributes = type.GetCustomAttributes(typeof(NamingConvensionAttribute), true);
             if (customAttributes.Length > 0)
             {
-                namingConvention = ((NamingConvensionAttribute) customAttributes[0]).Convention;
+                namingConvention = ((NamingConvensionAttribute)customAttributes[0]).Convention;
             }
 
             // 1. Get list of all public properties
@@ -114,6 +117,7 @@ namespace AzureSearchUtil
                         }
                         if ((indexAttrs & FieldOptions.Key) == FieldOptions.Key)
                         {
+                            isKeyFieldSpecified = true;
                             fieldDef["key"] = true;
                         }
                         if ((indexAttrs & FieldOptions.Retrievable) == FieldOptions.Retrievable)
@@ -142,8 +146,14 @@ namespace AzureSearchUtil
                 index.fields.Add(fieldDefObj);
             }
 
+            if (!isKeyFieldSpecified)
+            {
+                throw new InvalidSchemaException("There must be one Key field. Please use [FieldProperties(FieldOptions.Key)] attribute to specify the key field.");
+            }
+
             // 4. Serialize into JSON
             return JsonConvert.SerializeObject(index);
+
         }
 
         public static ExpandoObject ToFieldDefinition(this IndexFieldDefinition def)
@@ -155,7 +165,7 @@ namespace AzureSearchUtil
 
         public static bool IsKeyField(this PropertyInfo self)
         {
-            var attr = self.GetCustomAttribute(typeof (FieldPropertiesAttribute)) as FieldPropertiesAttribute;
+            var attr = self.GetCustomAttribute(typeof(FieldPropertiesAttribute)) as FieldPropertiesAttribute;
 
             return (attr != null && ((attr.Attributes & FieldOptions.Key) == FieldOptions.Key));
         }
@@ -182,7 +192,7 @@ namespace AzureSearchUtil
                 {
                     if (value is DateTime)
                     {
-                        value = new DateTimeOffset((DateTime) value);
+                        value = new DateTimeOffset((DateTime)value);
                     }
 
                     itemDic.Add(name, value);

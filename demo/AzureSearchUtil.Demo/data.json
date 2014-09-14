@@ -1,0 +1,295 @@
+﻿[
+//1
+{
+    "_id" : "53a744ea63fcd4170c99476b",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/JeffKoch",
+                "title" : "JeffKoch"
+            }, 
+            {
+                "url" : "/Niners/MicrosoftLearningExperiences",
+                "title" : "MicrosoftLearningExperiences"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/a96b/bb715e72-95cb-49ff-81c7-971f8b8ba96b/BuildingAppsForWindowsPhone81M12_220.jpg"
+        },
+        "duration" : 38,
+        "short" : "Find out about programming apps that use mapping and the users' locations."
+    },
+    "title" : "Building Apps for Windows Phone 8.1: (12) Maps, Geolocation, and Geofencing",
+    "url" : "http://channel9.msdn.com/series/building-apps-for-windows-phone-8-1/12"
+},
+
+//2
+{
+    "_id" : "53a8353263fcd41390c3943d",
+    "source" : {
+        "presenters" : [],
+        "title" : "channel9.msdn.com"
+    },
+    "desc" : {
+        "short" : ""
+    },
+    "title" : "",
+    "url" : "http://channel9.msdn.com/shows/endpoint/endpoint-screencasts-configuring-services-with-behaviors"
+},
+
+//3
+{
+    "_id" : "53a744c263fcd4170c99467e",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/WindowsAzure",
+                "title" : "Azure"
+            }, 
+            {
+                "url" : "/Niners/RichardAlan",
+                "title" : "RichardAlan"
+            }, 
+            {
+                "url" : "/Niners/prasannap",
+                "title" : "prasannap"
+            }, 
+            {
+                "url" : "/Niners/VishalJoshi",
+                "title" : "VishalJoshi"
+            }, 
+            {
+                "url" : "/Niners/VishalJoshi",
+                "title" : "VishalJoshi"
+            }, 
+            {
+                "url" : "/Niners/VishalJoshi",
+                "title" : "VishalJoshi"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/3abc/9b762f7a-5b92-4a36-8a51-6436a5ce3abc/ibiza01_220.jpg"
+        },
+        "duration" : 15,
+        "short" : "In this Azure Friday video, Scott Hanselman is joined by Vishal Joshi from the Windows Azure team. Vishal gives Scott a tour around the new Azure Portal and talks about blades, hubs, journeys, lenses and more."
+    },
+    "title" : "Overview of the new Azure Portal with Vishal Joshi",
+    "url" : "http://channel9.msdn.com/shows/azure-friday/overview-of-the-new-azure-portal-with-vishal-joshi"
+},
+
+//4
+{
+    "_id" : "53a744c263fcd4170c99467f",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/dtzar",
+                "title" : "David Tesar"
+            }, 
+            {
+                "url" : "/Niners/SymonPerriman",
+                "title" : "Symon Perriman"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/30a4/58cc35d8-4b70-44d9-971d-76b116bc30a4/EdgeShow101AvailabilityMonitoringwithAppInsights_220.jpg"
+        },
+        "duration" : 19,
+        "short" : "See how to monitor global application availability with Application Insights in this demo-heavy interview with Principal Program Manager Vlad Joanovic. Vlad shows us how entirely from the cloud service Application Insights provides you can in minutes start monitoring availability of your website without need to install any agents or modify any code.  Application Insights is a free preview right now connected to your Visual Studio Online account."
+    },
+    "title" : "Edge Show 101 - Availability Monitoring with App Insights",
+    "url" : "http://channel9.msdn.com/shows/edge/edge-show-101-availability-monitoring-with-app-insights"
+},
+
+//5
+{
+    "_id" : "53a744c263fcd4170c994680",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/mattsmall1972",
+                "title" : "mattsmall1972"
+            }, 
+            {
+                "url" : "/Niners/rcroeder",
+                "title" : "rcroeder"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/c59e/d64aded7-ac3e-4cff-9f71-d6cbaf42c59e/DataTemplateReferencing_220.jpg"
+        },
+        "duration" : 4,
+        "short" : "In this video, I explain a method by which you can get a reference to controls which are created at runtime inside a DataTemplate which is bound to a datasource.  These controls are difficult to find because they cannot be referred to by direct name."
+    },
+    "title" : "Playing Hide and Go Seek with DataTemplated Controls",
+    "url" : "http://channel9.msdn.com/series/windows-store-developer-solutions/playing-hide-and-go-seek-with-datatemplated-controls"
+},
+
+//6
+{
+    "_id" : "53a744c263fcd4170c994681",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/ErikKj",
+                "title" : "ErikKj"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/5ca0/a01f57ba-c624-42ca-a0b2-b937c79d5ca0/Curah02_220.jpg"
+        },
+        "duration" : 1,
+        "short" : "Here are a few tips from the Curah! team to help you create great curations."
+    },
+    "title" : "What makes a good curation?",
+    "url" : "http://channel9.msdn.com/blogs/system-center-help-videos/what-makes-a-good-curation-"
+},
+
+//7
+{
+    "_id" : "53a744c263fcd4170c994682",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/ErikKj",
+                "title" : "ErikKj"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/a155/2ab23ebe-b566-4dfa-a3da-d935748ea155/Curah01_220.jpg"
+        },
+        "duration" : 1,
+        "short" : "Searching for great technical information is tough – as is finding the right place to contribute and show off great content. The new content service Curah! makes those tasks much easier."
+    },
+    "title" : "Introduction to Curah!",
+    "url" : "http://channel9.msdn.com/blogs/system-center-help-videos/introduction-to-curah-"
+},
+
+//7
+{
+    "_id" : "53a744c263fcd4170c994683",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/gduncan411",
+                "title" : "Greg Duncan"
+            }, 
+            {
+                "url" : "/Niners/LarryLarsen",
+                "title" : "Larry Larsen"
+            }, 
+            {
+                "url" : "/Niners/sjypharm",
+                "title" : "sjypharm"
+            }, 
+            {
+                "url" : "/Niners/MagicAndre1981",
+                "title" : "Magic​Andre1981"
+            }, 
+            {
+                "url" : "/Niners/MagicAndre1981",
+                "title" : "Magic​Andre1981"
+            }, 
+            {
+                "url" : "/Niners/sjypharm",
+                "title" : "sjypharm"
+            }, 
+            {
+                "url" : "/Niners/MagicAndre1981",
+                "title" : "Magic​Andre1981"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/c15f/df86dbea-2360-40f7-8330-fae00426c15f/20140430Defrag_220.jpg"
+        },
+        "duration" : 23,
+        "short" : "Microsoft tech troubleshooter extraordinaire Gov Maharaj and I help walk you through troubleshooting solutions to your tech support problems. If you have a problem you want to send us, you can use the Problem Step Recorder in Windows 7 (see this for details on how) and send us the zip file to DefragShow@microsoft.com. We will also be checking comments for problems, but the email address will let us contact you if needed."
+    },
+    "title" : "Defrag: Windows To Go License, Setting Windows 8 Modern DPI, VC++ redists, Undocking laptops and more",
+    "url" : "http://channel9.msdn.com/shows/the-defrag-show/20140430defrag"
+},
+
+// 9
+{
+    "_id" : "53a744d763fcd40f1806b49b",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/Dan",
+                "title" : "Dan Fernandez"
+            }, 
+            {
+                "url" : "/Niners/gduncan411",
+                "title" : "Greg Duncan"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/b26b/22b1bd8d-24d7-41f7-82eb-76965b1cb26b/20140620TWC9_220.jpg"
+        },
+        "duration" : 21,
+        "short" : "This week on Channel 9, Dan and guest hosts Sven Groot and Christian Liensberger discuss the week's top developer news, including;"
+    },
+    "title" : "TWC9: Power BI Q&A, Azure Machine Learning, IE Dev Channel and more",
+    "url" : "http://channel9.msdn.com/shows/this+week+on+channel+9/twc9-power-bi-q-a-azure-machine-learning-ie-dev-channel-and-more"
+},
+
+// 10
+{
+    "_id" : "53a744d763fcd40f1806b49c",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/nickharris",
+                "title" : "Nick Harris"
+            }, 
+            {
+                "url" : "/Niners/chrisrisner",
+                "title" : "Chris"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/edc1/c584835e-bc13-4296-9f64-80d37834edc1/CloudCover144HybridConnections_220.jpg"
+        },
+        "duration" : 34,
+        "short" : "In this episode Nick Harris and Chris Risner are joined by Santosh Chandwani, Snr. Program Manager on Microsoft Azure's mobile workload.  In this video, Santosh talks about Hybrid Connections and how they enable you to connect your Azure resources to any on-premises resource.  Hybrid Connections allow you to securely expose specific resources (such as databases and web services) without altering on-premises firewall settings.  Santosh demonstrates connecting a website to a local database and then connecting the same website running in Azure to the same database without making any coding changes using a Hybrid Connection by installing and configuring the Hybrid Connection Manager.  He also shows a Mobile Service using a on-premises database for all data storage.  These Hybrid Connections can be controlled on-premises via Group Policies and support event and audit logging."
+    },
+    "title" : "Episode 144: Hybrid Connections with Santosh Chandwani",
+    "url" : "http://channel9.msdn.com/shows/cloud+cover/episode-144-hybrid-connections-with-santosh-chandwani"
+}
+]

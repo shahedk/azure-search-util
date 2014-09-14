@@ -9,9 +9,10 @@ namespace AzureSearchUtil
 {
     public static class PropertyExtensions
     {
+
         public static string GetSourceFieldName(this MemberInfo info)
         {
-            var propName = typeof(SourceAttribute).Name;
+            var propName = typeof(SourcePropertyNameAttribute).Name;
             var sourceFieldName = string.Empty;
 
             foreach (var attr in info.CustomAttributes.Where(attr => attr.AttributeType.Name == propName))
