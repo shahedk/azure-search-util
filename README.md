@@ -53,7 +53,7 @@ public string Thumbnail { get; set; }
 </pre>
 
 ###Mapping fields
-Some no-sql databases (eg. MongoDB) supports nested objects. But AzureSearch supports only few primitive types like string, interger, etc. Also, it only supports array of string types. The full list of supported data types can be found [here](msdn.microsoft.com/en-us/library/azure/dn798938.aspx).
+Some no-sql databases (eg. MongoDB) supports nested objects. But AzureSearch supports only few primitive types like string, interger, etc. Also, it only supports array of string types. The full list of supported data types can be found [here](http://msdn.microsoft.com/en-us/library/azure/dn798938.aspx).
 
 We can map these properties using the `SourcePropertyName` attribute.
 
