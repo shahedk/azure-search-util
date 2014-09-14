@@ -6,7 +6,7 @@ The library provides strongly typed interfaces to manage indexes, map and upload
 
 
 ##Creating an index
-First, we need to create an instance of the *AzureSearchService* class.
+First, we need to create an instance of the `AzureSearchService` class.
 
 `var searchService = new AzureSearchService("api key", "search service url", "api-version");`
 
@@ -30,7 +30,7 @@ public class Content
 
 Then, we can use the CreateIndex or CreateIndexAsync method to create the index.
 
-var result = searchService.CreateIndex(typeof(Content), "index-name");
+`var result = searchService.CreateIndex(typeof(Content), "index-name");`
 
 ###Set naming convention
 While we generally use pascal casing in .NET/C# classes, JavaScript/json objects often use the camel casing. We can use the `NamingConvension` attribute at the class level to set camel casing for all property names in the index.
@@ -43,7 +43,6 @@ public class Content
 </code>
 </pre>
 
-
 Or, we could also use the `PropertyName` attribute to specify different name for a specific property.
 
 <pre><code>
@@ -51,17 +50,18 @@ Or, we could also use the `PropertyName` attribute to specify different name for
 public string Thumbnail { get; set; }
 </code></pre>
 
-
 ###Mapping fields
 Some no-sql databases (eg. MongoDB) supports nested objects. But AzureSearch supports only few primitive types like string, interger, etc. Also, it only supports array of string types. The full list of supported data types can be found [here](msdn.microsoft.com/en-us/library/azure/dn798938.aspx).
 
-We can map these properties using the `SourcePropertyName` attribute
+We can map these properties using the `SourcePropertyName` attribute.
 
-<pre><code>
+<pre>
+<code>
 [SourcePropertyName("desc.img.short")]
 public string Thumbnail { get; set; }
 The data structure in MongoDB looks like this:
-</code></pre>
+</code>
+</pre>
 
 The same attribute can be used to map array type properties that maps to an array inside a nested object.
 
@@ -76,9 +76,10 @@ From the performance point of view, inserting document in batch is better than i
 AzureSearch service allows up to 1000 documents in a single batch update. However, we should decide the batch size based on the size of our documents.
 
 For example, the following code reads data from MongoDB database and adds 10 items at a time.
-<pre><code>
+<pre>
+<code>
 var mongoDbDocuments = GetData();
-var itemsToUpload = new List<object>();
+var itemsToUpload = new List &lt;object>();
 
 int count = 1;
 foreach (var doc in mongoDbDocuments)
@@ -102,7 +103,8 @@ if (itemsToUpload.Count > 0)
 {
     searchService.AddContent(testIndexName, itemsToUpload);
 }
-</code></pre>
+</code>
+</pre>
 
 ## Executing Search
 Although its not required, but its recommended that we create a `SearchResultItem` class to get the results.
@@ -113,7 +115,7 @@ public class SearchResultItem : Content
     public string SearchScore { get; set; }
 
     [JsonProperty(PropertyName = "@search.highlights")]
-    public Dictionary<string, List<string>> SearchHighlights { get; set; }
+    public Dictionary &lt;string, List&lt;string>> SearchHighlights { get; set; }
 }
 </code></pre>
 
