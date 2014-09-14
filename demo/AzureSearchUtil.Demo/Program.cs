@@ -49,7 +49,7 @@ namespace AzureSearchUtil.Demo
                 doc.FillObject(item);
                 itemsToUpload.Add(item);
 
-                if (count > 5)
+                if (count > TestSettings.AzureSearchBatchUpdateLimit)
                 {
                     searchService.AddContent(testIndexName, itemsToUpload);
 

@@ -61,6 +61,7 @@
     <Compile Include="AzureSearchExtensions.cs" />
     <Compile Include="AzureSearchService.cs" />
     <Compile Include="BoostTypes.cs" />
+    <Compile Include="Exceptions\InvalidConfigurationException.cs" />
     <Compile Include="Exceptions\InvalidSchemaException.cs" />
     <Compile Include="FieldOptions.cs" />
     <Compile Include="IndexDefinition.cs" />
