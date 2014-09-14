@@ -30,17 +30,16 @@ public class Content
 
 Then, we can use the CreateIndex or CreateIndexAsync method to create the index.
 
-<code>var result = searchService.CreateIndex(typeof(Content), "index-name");</code>
+var result = searchService.CreateIndex(typeof(Content), "index-name");
 
 ###Set naming convention
 While we generally use pascal casing in .NET/C# classes, JavaScript/json objects often use the camel casing. We can use the `NamingConvension` attribute at the class level to set camel casing for all property names in the index.
+
 <pre><code>
 [NamingConvension(NamingConventions.CamelCase)]
 public class Content
 {
-
 ...
-
 </code>
 </pre>
 
