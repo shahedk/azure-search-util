@@ -65,10 +65,12 @@ The data structure in MongoDB looks like this:
 
 The same attribute can be used to map array type properties that maps to an array inside a nested object.
 
-<pre><code>
+<pre>
+<code>
 [SourcePropertyName("source.presenters.title")]
 public string[] Presenters { get; set; }
-</code></pre>
+</code>
+</pre>
 
 ##Loading data
 From the performance point of view, inserting document in batch is better than inserting one document at a time. The `AddContent(...)` method takes a list of document and send all of them in a single REST call.
