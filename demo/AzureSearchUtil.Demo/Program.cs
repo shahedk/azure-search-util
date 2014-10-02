@@ -17,7 +17,7 @@ namespace AzureSearchUtil.Demo
 
             // 1. Create an instance of the service to communicate with AzureSearch service
             var searchService = new AzureSearchService(TestSettings.AzureSearchApiKey, TestSettings.AzureSearchUrlPrefix, TestSettings.AzureSearchApiVersion);
-
+            searchService.DeleteIndex(testIndexName);
             // 2. Create the index and check status
             var result = searchService.CreateIndex(typeof(Content), testIndexName);
             if (result.IsSuccessStatusCode)
@@ -43,7 +43,7 @@ namespace AzureSearchUtil.Demo
                 count++;
                 var item = new Content();
 
-                JsonObjectExtensions.FillObject(doc as JObject, item);
+                (doc as JObject).FillObject(item);
                 itemsToUpload.Add(item);
 
                 if (count > TestSettings.AzureSearchBatchUpdateLimit)
@@ -67,7 +67,7 @@ namespace AzureSearchUtil.Demo
             Thread.Sleep(1000);
 
             var totalDocuments = searchService.GetCount(testIndexName);
-            Console.WriteLine("Total number of documents in index is: " + totalDocuments);
+            Console.WriteLine("Total documents in index: " + totalDocuments);
             Console.WriteLine("");
 
             // 6. Run a search query
@@ -89,7 +89,7 @@ namespace AzureSearchUtil.Demo
         /// Instead of getting the data from MongoDB database, it returns data from file in a similar format as MongoDB clients.
         /// </summary>
         /// <returns></returns>
-        private static JArray GetData()
+        private static IEnumerable<JToken> GetData()
         {
             var jsonData = File.ReadAllText(@"..\..\data.json");
             return JArray.Parse(jsonData);

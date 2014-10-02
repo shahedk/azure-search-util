@@ -1,47 +1,4 @@
 ﻿[
-//1
-{
-    "_id" : "53a744ea63fcd4170c99476b",
-    "source" : {
-        "presenters" : [ 
-            {
-                "url" : "/Niners/JeffKoch",
-                "title" : "JeffKoch"
-            }, 
-            {
-                "url" : "/Niners/MicrosoftLearningExperiences",
-                "title" : "MicrosoftLearningExperiences"
-            }
-        ],
-        "title" : "channel9.msdn.com",
-        "url" : "http://channel9.msdn.com/"
-    },
-    "desc" : {
-        "img" : {
-            "short" : "http://media.ch9.ms/ch9/a96b/bb715e72-95cb-49ff-81c7-971f8b8ba96b/BuildingAppsForWindowsPhone81M12_220.jpg"
-        },
-        "duration" : 38,
-        "short" : "Find out about programming apps that use mapping and the users' locations."
-    },
-    "title" : "Building Apps for Windows Phone 8.1: (12) Maps, Geolocation, and Geofencing",
-    "url" : "http://channel9.msdn.com/series/building-apps-for-windows-phone-8-1/12"
-},
-
-//2
-{
-    "_id" : "53a8353263fcd41390c3943d",
-    "source" : {
-        "presenters" : [],
-        "title" : "channel9.msdn.com"
-    },
-    "desc" : {
-        "short" : ""
-    },
-    "title" : "",
-    "url" : "http://channel9.msdn.com/shows/endpoint/endpoint-screencasts-configuring-services-with-behaviors"
-},
-
-//3
 {
     "_id" : "53a744c263fcd4170c99467e",
     "source" : {
@@ -84,8 +41,6 @@
     "title" : "Overview of the new Azure Portal with Vishal Joshi",
     "url" : "http://channel9.msdn.com/shows/azure-friday/overview-of-the-new-azure-portal-with-vishal-joshi"
 },
-
-//4
 {
     "_id" : "53a744c263fcd4170c99467f",
     "source" : {
@@ -112,8 +67,6 @@
     "title" : "Edge Show 101 - Availability Monitoring with App Insights",
     "url" : "http://channel9.msdn.com/shows/edge/edge-show-101-availability-monitoring-with-app-insights"
 },
-
-//5
 {
     "_id" : "53a744c263fcd4170c994680",
     "source" : {
@@ -140,8 +93,6 @@
     "title" : "Playing Hide and Go Seek with DataTemplated Controls",
     "url" : "http://channel9.msdn.com/series/windows-store-developer-solutions/playing-hide-and-go-seek-with-datatemplated-controls"
 },
-
-//6
 {
     "_id" : "53a744c263fcd4170c994681",
     "source" : {
@@ -164,8 +115,6 @@
     "title" : "What makes a good curation?",
     "url" : "http://channel9.msdn.com/blogs/system-center-help-videos/what-makes-a-good-curation-"
 },
-
-//7
 {
     "_id" : "53a744c263fcd4170c994682",
     "source" : {
@@ -188,8 +137,6 @@
     "title" : "Introduction to Curah!",
     "url" : "http://channel9.msdn.com/blogs/system-center-help-videos/introduction-to-curah-"
 },
-
-//7
 {
     "_id" : "53a744c263fcd4170c994683",
     "source" : {
@@ -236,8 +183,6 @@
     "title" : "Defrag: Windows To Go License, Setting Windows 8 Modern DPI, VC++ redists, Undocking laptops and more",
     "url" : "http://channel9.msdn.com/shows/the-defrag-show/20140430defrag"
 },
-
-// 9
 {
     "_id" : "53a744d763fcd40f1806b49b",
     "source" : {
@@ -264,8 +209,6 @@
     "title" : "TWC9: Power BI Q&A, Azure Machine Learning, IE Dev Channel and more",
     "url" : "http://channel9.msdn.com/shows/this+week+on+channel+9/twc9-power-bi-q-a-azure-machine-learning-ie-dev-channel-and-more"
 },
-
-// 10
 {
     "_id" : "53a744d763fcd40f1806b49c",
     "source" : {

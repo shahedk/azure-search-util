@@ -23,7 +23,6 @@ namespace AzureSearchUtil.Demo
 
         public string Url { get; set; }
 
-        [PropertyName("thumb")]
         [SourcePropertyName("desc.img.short")]
         public string Thumbnail { get; set; }
     }
