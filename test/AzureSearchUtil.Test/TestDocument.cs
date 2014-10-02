@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AzureSearchUtil.Attributes;
 using Newtonsoft.Json;
 
@@ -15,23 +11,16 @@ namespace AzureSearchUtil.Test
         [SourcePropertyName("_id")]
         public string Id { get; set; }
 
-        // Text descriptions
-        [FieldProperties(FieldOptions.Searchable | FieldOptions.Retrievable | FieldOptions.Sortable | FieldOptions.Suggestions)]
-        [PropertyName("title")]
+        [SourcePropertyName("source.presenters.title")]
+        public string[] Presenters { get; set; }
+
+        [FieldProperties(FieldOptions.Searchable | FieldOptions.Suggestions | FieldOptions.Facetable)]
         public string Title { get; set; }
 
+        public string Url { get; set; }
 
-        public string Description { get; set; }
-
-        public string[] Labels { get; set; }
+        [SourcePropertyName("desc.img.short")]
         public string Thumbnail { get; set; }
-
-        public int Cost { get; set; }
-
-        public DateTime PubDate { get; set; }
-        public DateTimeOffset StartDate { get; set; }
-
-        public string[] DownloadUrls { get; set; }
     }
 
     public class SearchResultItem : TestDocument

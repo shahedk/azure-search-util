@@ -8,30 +8,22 @@ using Newtonsoft.Json;
 namespace AzureSearchUtil.Test
 {
     [TestClass]
-    public class DataLoadingTest
+    public class DataLoadingTest : TestBase
     {
         [TestMethod]
         public void InsertDocumentInBulk()
         {
-            const string testIndexName = "con12";
+            const string testIndexName = "con0";
             var searchService = new AzureSearchService(TestSettings.AzureSearchApiKey,
                     TestSettings.AzureSearchUrlPrefix, TestSettings.AzureSearchApiVersion);
-
+            
             // Prepare test env: create a new index
             var result = searchService.CreateIndex(typeof(TestDocument), testIndexName);
             Assert.IsTrue(result.IsSuccessStatusCode, "Failed to create index. " + result.StatusCode);
 
             try
             {
-                // Prepare test env (2): insert a document
-                var doc1 = new TestDocument()
-                {
-                    Id = "test2",
-                    Title = "Test doc 01",
-                    PubDate = DateTime.Now,
-                    StartDate = DateTime.Now
-                };
-                var itemsToAdd = new List<object> { doc1 };
+                var itemsToAdd = GetData(2);
                 searchService.AddContent(testIndexName, itemsToAdd);
 
                 // Wait a bit, give AzureSearch some time to process
@@ -54,7 +46,7 @@ namespace AzureSearchUtil.Test
             const string testIndexName = "con12";
             var searchService = new AzureSearchService(TestSettings.AzureSearchApiKey,
                     TestSettings.AzureSearchUrlPrefix, TestSettings.AzureSearchApiVersion);
-
+            
             // Prepare test env: create a new index
             var result = searchService.CreateIndex(typeof(TestDocument), testIndexName);
             Assert.IsTrue(result.IsSuccessStatusCode, "Failed to create index. " + result.StatusCode);
@@ -63,15 +55,7 @@ namespace AzureSearchUtil.Test
             {
                 // Prepare test env (2): insert a document
 
-                var itemsToAdd = new List<object> { 
-                    new TestDocument()
-                {
-                    Id = "test1",
-                    Title = "Test doc 01",
-                    PubDate = DateTime.Now,
-                    StartDate = DateTime.Now
-                }
-                };
+                var itemsToAdd = GetData();
                 searchService.AddContent(testIndexName, itemsToAdd);
 
                 // Wait a bit, give AzureSearch some time to process
@@ -103,22 +87,14 @@ namespace AzureSearchUtil.Test
             {
                 // Prepare test env (2): insert a document
 
-                var itemsToAdd = new List<object> { 
-                    new TestDocument()
-                {
-                    Id = "test1",
-                    Title = "Test doc 01",
-                    PubDate = DateTime.Now,
-                    StartDate = DateTime.Now
-                }
-                };
+                var itemsToAdd = GetData();
                 searchService.AddContent(testIndexName, itemsToAdd);
 
                 // Wait a bit, give AzureSearch some time to process
                 Thread.Sleep(1000);
 
                 // Test: Search  
-                var searchResult = searchService.Search<SearchResultItem>(testIndexName, "test");
+                var searchResult = searchService.Search<SearchResultItem>(testIndexName, "Azure Portal");
                 
                 Assert.IsTrue(searchResult.value.Count > 0, "Failed to get search results!");
             }

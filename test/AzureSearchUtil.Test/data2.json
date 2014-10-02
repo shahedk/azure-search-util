@@ -1,0 +1,26 @@
+﻿{
+    "_id" : "53a744ea63fcd4170c99476b",
+    "source" : {
+        "presenters" : [ 
+            {
+                "url" : "/Niners/JeffKoch",
+                "title" : "JeffKoch"
+            }, 
+            {
+                "url" : "/Niners/MicrosoftLearningExperiences",
+                "title" : "MicrosoftLearningExperiences"
+            }
+        ],
+        "title" : "channel9.msdn.com",
+        "url" : "http://channel9.msdn.com/"
+    },
+    "desc" : {
+        "img" : {
+            "short" : "http://media.ch9.ms/ch9/a96b/bb715e72-95cb-49ff-81c7-971f8b8ba96b/BuildingAppsForWindowsPhone81M12_220.jpg"
+        },
+        "duration" : 38,
+        "short" : "Find out about programming apps that use mapping and the users' locations."
+    },
+    "title" : "Building Apps for Windows Phone 8.1: (12) Maps, Geolocation, and Geofencing",
+    "url" : "http://channel9.msdn.com/series/building-apps-for-windows-phone-8-1/12"
+}

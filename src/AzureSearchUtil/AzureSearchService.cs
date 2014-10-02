@@ -193,7 +193,7 @@ namespace AzureSearchUtil
             var batch = new IndexItemBatch();
             foreach (var item in items.Select(entity => entity.ToSearchIndexItem()))
             {
-                (item as IDictionary<string, object>).Add("@search.action", searchAction);
+                //(item as IDictionary<string, object>).Add("@search.action", searchAction);
 
                 batch.value.Add(item);
             }

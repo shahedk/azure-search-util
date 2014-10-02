@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MongoDB.Bson.Serialization.Serializers;
 using Newtonsoft.Json;
 
 namespace AzureSearchUtil.Test

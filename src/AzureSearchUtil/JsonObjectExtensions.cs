@@ -1,42 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using MongoDB.Bson;
+using System.Diagnostics;
+using System.Dynamic;
+using Newtonsoft.Json.Linq;
 
 namespace AzureSearchUtil
 {
-    public static class MongoDbPropertyExtensions
+    public static class JsonObjectExtensions
     {
-
-        public static void FillObject(this BsonDocument doc, object obj)
+        public static void FillObject(this JObject sourceObj, object objToFill)
         {
-            var props = obj.GetType().GetProperties();
+            var props = objToFill.GetType().GetProperties();
             foreach (var propertyInfo in props)
             {
                 var sourceFieldName = propertyInfo.GetSourceFieldName();
 
-                if (doc.Contains(sourceFieldName))
+                if (sourceObj[sourceFieldName] != null)
                 {
-                    var val = doc[sourceFieldName].RawValue;
+                    var val = sourceObj[sourceFieldName];
 
                     if (val != null)
                     {
-                        obj.SetValue(propertyInfo, val);
+                        objToFill.SetValue(propertyInfo, val);
                     }
                 }
                 else if (sourceFieldName.Contains("."))
                 {
                     var propNames = sourceFieldName.Split(".".ToCharArray());
 
-                    var propValue = GetValue(doc, propNames);
+                    var propValue = GetValue(sourceObj, propNames);
                     if (propValue != null)
                     {
-                        obj.SetValue(propertyInfo, propValue);
+                        objToFill.SetValue(propertyInfo, propValue);
                     }
                 }
             }
         }
 
-        private static object GetValue(BsonDocument doc, string[] propNames)
+        private static object GetValue(JObject doc, string[] propNames)
         {
             if (propNames.Length > 0)
             {
@@ -45,28 +46,32 @@ namespace AzureSearchUtil
                 var newPropNames = new string[propNames.Length - 1];
                 for (var i = 1; i < propNames.Length; i++)
                 {
-                    newPropNames[i-1] = propNames[i];
+                    newPropNames[i - 1] = propNames[i];
                 }
 
-                if (!doc.Contains(propName))
+                if (doc[propName] == null)
                     return null;
 
-                if (doc[propName].IsBsonArray)
+                if (doc[propName].Type == JTokenType.Array)
                 {
-                    // NOTE: We know AzureSearch only supports string collections
+                    // Since AzureSearch only supports string collections
                     var list = new List<string>();
 
-                    var arr = doc[propName].AsBsonArray;
+                    var arr = doc[propName] as JArray;
                     foreach (var val in arr)
                     {
-                        if (val.IsBsonDocument)
+                        if (val.Type == JTokenType.Object)
                         {
-                            var item = GetValue(val.AsBsonDocument, newPropNames).ToString();
+                            var item = GetValue(val as JObject, newPropNames).ToString();
                             list.Add(item);
+                        }
+                        else if (val.Type == JTokenType.Array)
+                        {
+                            throw new Exception("Unsupported data structure");
                         }
                         else
                         {
-                            list.Add(val.AsString);
+                            list.Add(val.ToString());
                         }
                     }
 
@@ -74,23 +79,25 @@ namespace AzureSearchUtil
                 }
                 else
                 {
-                    if (doc[propName].IsBsonDocument)
+                    if (doc[propName].Type == JTokenType.Object)
                     {
-                        var bsonDoc = doc[propName].AsBsonDocument;
+                        var bsonDoc = doc[propName] as JObject;
                         return GetValue(bsonDoc, newPropNames);
                     }
                     else
                     {
-                        return doc[propName].RawValue;
+                        return doc[propName];
                     }
                 }
-                
+
             }
             else
             {
                 return string.Empty;
             }
         }
+
+
 
     }
 }

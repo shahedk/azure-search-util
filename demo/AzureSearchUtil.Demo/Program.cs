@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Dynamic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using MongoDB.Bson;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace AzureSearchUtil.Demo
 {
@@ -38,15 +34,16 @@ namespace AzureSearchUtil.Demo
             }
 
             //3. Prepare the list of documents/items to upload and upload in batch
-            var mongoDbDocuments = GetData();
+            var jsonDocuments = GetData();
             var itemsToUpload = new List<object>();
 
             int count = 1;
-            foreach (var doc in mongoDbDocuments)
+            foreach (var doc in jsonDocuments)
             {
                 count++;
                 var item = new Content();
-                doc.FillObject(item);
+
+                JsonObjectExtensions.FillObject(doc as JObject, item);
                 itemsToUpload.Add(item);
 
                 if (count > TestSettings.AzureSearchBatchUpdateLimit)
@@ -92,12 +89,10 @@ namespace AzureSearchUtil.Demo
         /// Instead of getting the data from MongoDB database, it returns data from file in a similar format as MongoDB clients.
         /// </summary>
         /// <returns></returns>
-        private static IEnumerable<BsonDocument> GetData()
+        private static JArray GetData()
         {
             var jsonData = File.ReadAllText(@"..\..\data.json");
-            var records = (List<ExpandoObject>)JsonConvert.DeserializeObject(jsonData, typeof(List<ExpandoObject>));
-
-            return records.Select(record => new BsonDocument(record)).ToList();
+            return JArray.Parse(jsonData);
         }
     }
 }

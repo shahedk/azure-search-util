@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace AzureSearchUtil
 {
     public static class PropertyExtensions
     {
-
+       
         public static string GetSourceFieldName(this MemberInfo info)
         {
             var propName = typeof(SourcePropertyNameAttribute).Name;

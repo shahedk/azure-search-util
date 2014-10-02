@@ -37,12 +37,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\..\src\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Bson.dll</HintPath>
-    </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\..\src\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Driver.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\src\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -64,15 +58,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Tests\DataLoadingTest.cs" />
-    <Compile Include="Tests\FillObjectTest.cs" />
-    <Compile Include="Tests\IndexCreationTest.cs" />
+    <Compile Include="DataLoadingTest.cs" />
+    <Compile Include="FillObjectTest.cs" />
+    <Compile Include="IndexCreationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestDocument.cs" />
     <Compile Include="TestSettings.cs" />
+    <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="data.json" />
+    <None Include="data2.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
