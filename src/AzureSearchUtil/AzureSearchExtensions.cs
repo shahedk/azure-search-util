@@ -13,7 +13,7 @@ namespace AzureSearchUtil
     public static class AzureSearchExtensions
     {
         /// <summary>
-        /// Returns a Azure suported data type (eg. Edm.String) for .NET data types
+        /// Returns a Azure supported data type (eg. Edm.String) for .NET data types
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
