@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Dynamic;
+using System.Reflection;
 using Newtonsoft.Json.Linq;
 
 namespace AzureSearchUtil
@@ -10,7 +9,7 @@ namespace AzureSearchUtil
     {
         public static void FillObject(this JObject sourceObj, object objToFill)
         {
-            var props = objToFill.GetType().GetProperties();
+            var props = objToFill.GetType().GetRuntimeProperties();
             foreach (var propertyInfo in props)
             {
                 var sourceFieldName = propertyInfo.GetSourceFieldName();

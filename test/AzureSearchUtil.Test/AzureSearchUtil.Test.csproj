@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\AzureSearchUtil\AzureSearchUtil.csproj">
-      <Project>{8A2DF054-FAD0-437A-B0F7-741DCB96C448}</Project>
+      <Project>{17832697-2bf0-448e-85b3-c5d33c4f3eca}</Project>
       <Name>AzureSearchUtil</Name>
     </ProjectReference>
   </ItemGroup>

@@ -61,16 +61,18 @@ namespace AzureSearchUtil
             var index = new IndexDefinition() { name = indexName };
 
             var namingConvention = NamingConventions.None;
-            var customAttributes = type.GetCustomAttributes(typeof(NamingConvensionAttribute), true);
-            if (customAttributes.Length > 0)
+
+            
+            var customAttributes = type.GetTypeInfo().GetCustomAttributes(typeof(NamingConvensionAttribute), true);
+            if (customAttributes.Any())
             {
-                namingConvention = ((NamingConvensionAttribute)customAttributes[0]).Convention;
+                namingConvention = ((NamingConvensionAttribute)customAttributes.First()).Convention;
             }
 
             // 1. Get list of all public properties
             // 2. Convert field names and get data types
             // 3. Create index definition
-            var properties = type.GetProperties();
+            var properties = type.GetRuntimeProperties();
             foreach (var propertyInfo in properties)
             {
                 var fieldDefObj = new ExpandoObject();
@@ -175,7 +177,7 @@ namespace AzureSearchUtil
             var item = new ExpandoObject();
             var itemDic = item as IDictionary<string, Object>;
 
-            var properties = obj.GetType().GetProperties();
+            var properties = obj.GetType().GetRuntimeProperties();
             foreach (var propertyInfo in properties)
             {
                 var name = propertyInfo.Name.ToCamelCase();
