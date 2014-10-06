@@ -13,7 +13,7 @@ namespace AzureSearchUtil.Test
         [TestMethod]
         public void InsertDocumentInBulk()
         {
-            const string testIndexName = "con0";
+            const string testIndexName = "cx";
             var searchService = new AzureSearchService(TestSettings.AzureSearchApiKey,
                     TestSettings.AzureSearchUrlPrefix, TestSettings.AzureSearchApiVersion);
             
@@ -43,7 +43,7 @@ namespace AzureSearchUtil.Test
         [TestMethod]
         public void DeleteDocument()
         {
-            const string testIndexName = "con12";
+            const string testIndexName = "contents";
             var searchService = new AzureSearchService(TestSettings.AzureSearchApiKey,
                     TestSettings.AzureSearchUrlPrefix, TestSettings.AzureSearchApiVersion);
             
@@ -75,13 +75,13 @@ namespace AzureSearchUtil.Test
         [TestMethod]
         public void Search()
         {
-            const string testIndexName = "con12";
+            const string testIndexName = "content";
             var searchService = new AzureSearchService(TestSettings.AzureSearchApiKey,
                     TestSettings.AzureSearchUrlPrefix, TestSettings.AzureSearchApiVersion);
             
             // Prepare test env: create a new index
-            var result = searchService.CreateIndex(typeof(TestDocument), testIndexName);
-            Assert.IsTrue(result.IsSuccessStatusCode, "Failed to create index. " + result.StatusCode);
+          //  var result = searchService.CreateIndex(typeof(TestDocument), testIndexName);
+          //  Assert.IsTrue(result.IsSuccessStatusCode, "Failed to create index. " + result.StatusCode);
 
             try
             {
@@ -101,7 +101,7 @@ namespace AzureSearchUtil.Test
             finally
             {
                 // Cleanup: delete the newly created index
-                searchService.DeleteIndex(testIndexName);
+              //  searchService.DeleteIndex(testIndexName);
             }
         }
     }

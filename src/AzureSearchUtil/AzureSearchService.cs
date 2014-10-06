@@ -20,6 +20,7 @@ namespace AzureSearchUtil
 
                 _client = new HttpClient();
                 _client.DefaultRequestHeaders.Add("api-key", _apiKey);
+                _client.DefaultRequestHeaders.Add("Accept", "application/json");
 
                 return _client;
             }
@@ -78,12 +79,17 @@ namespace AzureSearchUtil
         }
 
 
-        public async Task<string> SearchAsync(string indexName, string searchText)
+        public async Task<string> SearchAsync(string indexName, string searchText, uint pageSize = 10, uint pageNo = 1)
         {
-            const string urlFormat = "{0}/indexes/{1}/docs?api-version={2}&search={3}";
-            var url = string.Format(urlFormat, _serviceUrl, indexName, _apiVersion, searchText);
+            uint skip = 0;
+            if (pageNo > 0)
+            {
+                skip = (pageNo - 1) * pageSize;
+            }
+            const string urlFormat = "{0}/indexes/{1}/docs?api-version={2}&search={3}&$top={4}&$skip={5}";
+            var url = string.Format(urlFormat, _serviceUrl, indexName, _apiVersion, searchText, pageSize, skip);
 
-            var response = await Client.GetAsync(url);
+            var response = await Client.GetAsync(url).ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
 
             var result = await response.Content.ReadAsStringAsync();
@@ -91,31 +97,32 @@ namespace AzureSearchUtil
             return result;
         }
 
-        public string Search(string indexName, string searchText)
+        public string Search(string indexName, string searchText, uint pageSize = 10, uint pageNo = 1)
         {
-            var task = SearchAsync(indexName, searchText);
+            var task = SearchAsync(indexName, searchText, pageSize, pageNo);
             task.Wait();
 
             return task.Result;
+
         }
 
-        public SearchResult<T> SearchAsync<T>(string indexName, string searchText)
+        public SearchResult<T> SearchAsync<T>(string indexName, string searchText, uint pageSize = 10, uint pageNo = 1)
         {
-            var json = SearchAsync(indexName, searchText).Result;
+            var json = SearchAsync(indexName, searchText, pageSize, pageNo).Result;
             var result = (SearchResult<T>)JsonConvert.DeserializeObject(json, typeof(SearchResult<T>));
 
             return result;
         }
 
-        public SearchResult<T> Search<T>(string indexName, string searchText)
+        public SearchResult<T> Search<T>(string indexName, string searchText, uint pageSize = 10, uint pageNo = 1)
         {
-            var json = Search(indexName, searchText);
+            var json = Search(indexName, searchText, pageSize, pageNo);
             var result = (SearchResult<T>)JsonConvert.DeserializeObject(json, typeof(SearchResult<T>));
 
             return result;
         }
 
-        
+
 
         public async Task<string> GetIndexAsync(string indexName)
         {
