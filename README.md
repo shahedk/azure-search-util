@@ -139,7 +139,7 @@ The library is in the early stage of development. I am still adding new function
 PM> Install-Package azure-search-util
 
 **blog:**
-http://shahed.net
+http://shahed.me
 
 **code samples:**
 master/demo/AzureSearchUtil.Demo
