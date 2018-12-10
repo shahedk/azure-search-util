@@ -138,8 +138,5 @@ The library is in the early stage of development. I am still adding new function
 **nugget:**
 PM> Install-Package azure-search-util
 
-**blog:**
-http://shahed.me
-
 **code samples:**
 master/demo/AzureSearchUtil.Demo
